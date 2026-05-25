@@ -11,15 +11,25 @@ import { FormsModule } from '@angular/forms';
 export class CarList {
   carName: string = 'Chevrolet Camaro';
   carYear: Date = new Date('');
-  car: Car = {
-    id: 1,
-    name: 'Chevrolet Camaro',
-    year: new Date(2020, 5, 15),
-  };
+  cars: Car[] = [
+    {
+      id: 1,
+      name: 'Chevrolet Camaro',
+      year: new Date(2020, 5, 15),
+    },
+  ];
 
   onSubmit() {
-    console.log('Form submitted with values:');
-    console.log('Car Name:', this.carName);
-    console.log('Car Year:', this.carYear);
+    if (this.carName.length != 0 && this.carYear) {
+      const newCar: Car = {
+        id: this.cars.length + 1,
+        name: this.carName,
+        year: this.carYear,
+      };
+      this.cars.push(newCar);
+      this.carName = '';
+      this.carYear = new Date('');
+      console.log(this.cars);
+    }
   }
 }
