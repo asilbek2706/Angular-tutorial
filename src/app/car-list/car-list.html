@@ -5,3 +5,16 @@
     <li>{{car.name}}</li>
     <li>{{car.year}}</li>
 </ul>
+
+<div>
+    <input type="text" placeholder="Enter car name" [(ngModel)]="carName">
+    <input type="date" placeholder="Enter car year" [(ngModel)]="carYear">
+    <button (click)="onSubmit()">Add Car</button>
+</div>
+
+<!-- 
+    () - event binding
+    [] - property binding
+    {{}} - interpolation
+    [()] - two way data binding
+-->
