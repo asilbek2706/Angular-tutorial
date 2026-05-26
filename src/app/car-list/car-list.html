@@ -7,8 +7,11 @@
 
 <ul>
     @for(car of cars; track car.id){
-        <li>{{car.name}} | {{car.year}}
+        <li>{{car.name | text:'uppercase'}} | {{car.year}}
             <button (click)="onDelete(car)">Delete</button>
         </li>
     }
 </ul>
+
+<h1>Purchased from {{company | text:'lowercase'}} on {{purchasedOn | date:"d MMM y"}}</h1>
+<p>Total: {{amount | currency:"EUR"}}</p>

@@ -44,3 +44,13 @@ button:hover{
     background-color: darkred;
     border-color: red;
 }
+
+h1{
+    font-size: 36px;
+    color: green;
+}
+
+p{
+    font-size: 18px;
+    color: black;
+}
