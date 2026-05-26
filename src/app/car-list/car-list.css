@@ -11,3 +11,36 @@ li{
     font-size: 24px;
     color: blue;
 }
+
+input{
+    padding: 8px;
+    font-size: 16px;
+    margin-right: 10px;
+    border: 2px solid gray;
+    border-radius: 5px;
+    outline: none;
+}
+
+input:hover{
+    border-color: darkgray;
+}
+
+input:focus{
+    border-color: blue;
+}
+
+button{
+    color: white;
+    background-color: red;
+    border: 2px solid darkred;
+    padding: 8px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+button:hover{
+    background-color: darkred;
+    border-color: red;
+}

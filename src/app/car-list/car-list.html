@@ -4,3 +4,11 @@
     <input type="date" placeholder="Enter car year" [(ngModel)]="carYear">
     <button (click)="onSubmit()">Add Car</button>
 </div>
+
+<ul>
+    @for(car of cars; track car.id){
+        <li>{{car.name}} | {{car.year}}
+            <button (click)="onDelete(car)">Delete</button>
+        </li>
+    }
+</ul>
