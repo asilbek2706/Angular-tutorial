@@ -2,12 +2,10 @@ import { Component } from '@angular/core';
 import { Car } from '../models/car';
 import { FormsModule } from '@angular/forms';
 import { OnInit } from '@angular/core';
-import { CurrencyPipe, DatePipe, TitleCasePipe } from '@angular/common';
-import { TextPipe } from '../pipe/text.pipe';
 
 @Component({
   selector: 'app-car-list',
-  imports: [FormsModule, CurrencyPipe, DatePipe, TitleCasePipe, TextPipe],
+  imports: [FormsModule],
   templateUrl: './car-list.html',
   styleUrl: './car-list.css',
 })
@@ -15,10 +13,6 @@ export class CarList implements OnInit {
   carName: string = '';
   carYear: Date = new Date('');
   cars: Car[] = [];
-
-  amount = 123.45;
-  company = 'asilbek-school';
-  purchasedOn = '2026-01-01';
 
   ngOnInit(): void {
     const savedCars = localStorage.getItem('cars');
@@ -45,8 +39,3 @@ export class CarList implements OnInit {
     localStorage.setItem('cars', JSON.stringify(this.cars));
   }
 }
-
-// Lifecycle hooks (methods) in Angular:
-// 1. ngOnInit(): Called once the component is initialized. Used for component initialization logic.
-// 2. ngOnChanges(): Called when any data-bound property of a directive changes. Used to respond to changes in input properties.
-// 3. ngOnDestroy(): Called just before the component is destroyed. Used for cleanup logic, such as unsubscribing from observables or detaching event handlers.

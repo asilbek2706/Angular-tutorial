@@ -7,5 +7,5 @@ import { CarList } from "./car-list/car-list";
   imports: [CarList]
 })
 export class App {
-  protected readonly title = signal('angular-course');
+  protected readonly title = signal('Asilbek | Angular-course');
 }
