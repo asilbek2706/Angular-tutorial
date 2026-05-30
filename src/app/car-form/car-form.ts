@@ -6,7 +6,7 @@ import { CarService } from '../services/car.service';
   selector: 'app-car-form',
   imports: [ReactiveFormsModule],
   templateUrl: './car-form.html',
-  styleUrl: './car-form.css',
+  styleUrls: ['./car-form.css'],
   standalone: true,
 })
 export class CarForm {

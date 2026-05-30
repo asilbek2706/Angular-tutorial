@@ -1,17 +1,28 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CarService } from '../services/car.service';
+import { Reservation } from '../models/reservation';
+import { DatePipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-car-list',
-  imports: [],
+  imports: [DatePipe, RouterLink],
   templateUrl: './car-list.html',
-  styleUrl: './car-list.css',
+  styleUrls: ['./car-list.css'],
   standalone: true,
 })
-export class CarList {
+export class CarList implements OnInit {
+  reservationList: Reservation[] = [];
   reservationService = inject(CarService);
 
-  constructor() {
-    console.log(this.reservationService.getReservations());
+  ngOnInit(): void {
+    this.reservationList = this.reservationService.getReservations();
+  }
+
+  deleteReservation(reservation: Reservation): void {
+    if (confirm(`Are you sure you want to delete the reservation for ${reservation.carModel}?`)) {
+      this.reservationService.deleteReservation(reservation.id);
+      this.reservationList = this.reservationService.getReservations();
+    }
   }
 }
