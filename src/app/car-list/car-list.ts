@@ -20,9 +20,8 @@ export class CarList implements OnInit {
   }
 
   deleteReservation(reservation: Reservation): void {
-    if (confirm(`Are you sure you want to delete the reservation for ${reservation.carModel}?`)) {
       this.reservationService.deleteReservation(reservation.id);
       this.reservationList = this.reservationService.getReservations();
-    }
+    
   }
 }
