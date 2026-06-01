@@ -46,8 +46,11 @@ export class CarForm {
     if (reservationId) {
       const reservation = this.carService.getReservationById(Number(+reservationId));
       if (reservation) {
-        this.carService.updateReservation(+reservationId, { ...this.reservationForm.value, id: reservation.id });
-      this.router.navigate(['/list']); // Navigate back to the list of reservations
+        this.carService.updateReservation(+reservationId, {
+          ...this.reservationForm.value,
+          id: reservation.id,
+        });
+        this.router.navigate(['/list']); // Navigate back to the list of reservations
       }
     } else {
       const data = { ...this.reservationForm.value, id: Date.now() }; // Generate a unique ID for the reservation
