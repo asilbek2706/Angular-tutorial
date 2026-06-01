@@ -1,11 +1,13 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Reservation } from '../models/reservation';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root', // Singleton pattern: the service will be available throughout the application
 })
 export class CarService {
   private reservations: Reservation[] = [];
+  private http = inject(HttpClient); // Inject HttpClient for potential future use
 
   constructor() {
     const savedReservations = localStorage.getItem('reservations');
