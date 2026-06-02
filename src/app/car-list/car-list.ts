@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { CarService } from '../services/car.service';
 import { Reservation } from '../models/reservation';
 import { DatePipe } from '@angular/common';
@@ -14,14 +14,27 @@ import { RouterLink } from '@angular/router';
 export class CarList implements OnInit {
   reservationList: Reservation[] = [];
   reservationService = inject(CarService);
+  cdr = inject(ChangeDetectorRef);
 
   ngOnInit(): void {
-    this.reservationList = this.reservationService.getReservations();
+    this.loadReservations();
+  }
+
+  loadReservations(): void {
+    this.reservationService.getReservations().subscribe({
+      next: (data: Reservation[]) => {
+        this.reservationList = data;
+        this.cdr.detectChanges(); // Manually trigger change detection to update the view
+      },
+      error: (error) => {
+        console.error('Error fetching reservations:', error);
+      },
+    })
   }
 
   deleteReservation(reservation: Reservation): void {
-      this.reservationService.deleteReservation(reservation.id);
-      this.reservationList = this.reservationService.getReservations();
+      // this.reservationService.deleteReservation(reservation.id);
+      // this.reservationList = this.reservationService.getReservations();
     
   }
 }
