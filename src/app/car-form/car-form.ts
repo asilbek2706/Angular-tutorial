@@ -49,17 +49,27 @@ export class CarForm implements OnInit {
     if (reservationId) {
       const reservation = this.carService.getReservationById(Number(+reservationId));
       if (reservation) {
-        this.carService.updateReservation(+reservationId, {
-          ...this.reservationForm.value,
-          id: reservation,
+        this.carService.updateReservation(+reservationId, this.reservationForm.value).subscribe({
+          next: () => {
+            this.reservationForm.reset(); // Clear the form after successful submission
+            this.router.navigate(['/list']); // Navigate back to the list of reservations
+          },
+          error: (error) => {
+            throw new Error(`Error updating reservation: ${error.message}`);
+          },
         });
         this.router.navigate(['/list']); // Navigate back to the list of reservations
       }
     } else {
-      const data = { ...this.reservationForm.value, id: Date.now() }; // Generate a unique ID for the reservation
-      this.carService.addReservation(data);
-      this.reservationForm.reset(); // Reset the form after submission
-      this.router.navigate(['/list']); // Navigate back to the list of reservations
+      this.carService.addReservation(this.reservationForm.value).subscribe({
+        next: () => {
+          this.reservationForm.reset(); // Clear the form after successful submission
+          this.router.navigate(['/list']); // Navigate back to the list of reservations
+        },
+        error: (error) => {
+          console.error('Error adding reservation:', error);
+        },
+      });
     }
   }
 }

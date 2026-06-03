@@ -1,40 +1,13 @@
 {
   "reservations": [
     {
-      "id": "1",
-      "checkIn": "2024-07-01",
-      "checkOut": "2024-07-05",
-      "clientName": "John Doe",
-      "clientEmail": "john.doe@example.com",
-      "carModel": "Lacetti",
-      "carNumber": "814"
-    },
-    {
-      "id": "2",
-      "checkIn": "2024-07-10",
-      "checkOut": "2024-07-15",
-      "clientName": "Jane Smith",
-      "clientEmail": "john.doe@example.ru",
-      "carModel": "Honda Accord",
-      "carNumber": "812"
-    },
-    {
-      "id": "3",
-      "checkIn": "2024-07-20",
-      "checkOut": "2024-07-25",
-      "clientName": "Alice Johnson",
-      "clientEmail": "alice@mail.ru",
-      "carModel": "Ford Focus",
-      "carNumber": "813"
-    },
-    {
-      "id": "4",
-      "checkIn": "2024-07-01",
-      "checkOut": "2024-07-05",
-      "clientName": "John Doe",
-      "clientEmail": "john.doe@example.com",
-      "carModel": "Supra",
-      "carNumber": "814"
+      "checkIn": "2026-06-05",
+      "checkOut": "2026-06-10",
+      "clientName": "dvcscdc",
+      "clientEmail": "dsvssd@gmail.com",
+      "carModel": "dfjvndjv",
+      "carNumber": 986,
+      "id": "rpKVPipzkrQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
